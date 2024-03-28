@@ -1,0 +1,49 @@
+name: Vite Example
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  push:
+    branches: [ vite-example ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  vite-example:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.18.2]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Installing dependencies
+        run: |
+          cd vite-example
+          npm install --force    
+      - name: Build production project
+        run: |
+          cd vite-example
+          npm run build
+      - name: Linting typescript
+        run: |
+          cd vite-example
+          npm run lint:ts
+      - name: Linting css
+        run: |
+          cd vite-example
+          npm run lint:scss
+      - name: Unit testing
+        run: |
+          cd vite-example
+          npm run test:unit
+      - name: Build storybook
+        run: |
+          cd vite-example
+          npm run storybook:build
+      - name: Screenshots testing (loki js)
+        run: |
+          cd vite-example
+          npm run test:ui:ci        
+
+      - run: echo "🍏 This vite example job's status is ${{ job.status }}."

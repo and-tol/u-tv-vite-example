@@ -1,0 +1,18 @@
+{
+  "Welcome to React": "Добро пожаловать в реакт",
+  "Translate": "Перевести",
+  "Main": "Главная",
+  "About": "О сайте",
+  "toggle": "переключить",
+  "Page Not Found": "",
+  "Sorry... there was an error": "Извините... произошла ошибка",
+  "There was an unforeseen error": "Произошла непредвиденная ошибка",
+  "Refresh page": "Обновить страницу",
+  "Input": "Вход",
+  "increment": "увеличить",
+  "decrement": "уменьшить",
+  "Войти": "Войти",
+  "Enter": "Войти",
+  "Input Password": "Введите пароль",
+  "Input Username": "Ведите Username"
+}
