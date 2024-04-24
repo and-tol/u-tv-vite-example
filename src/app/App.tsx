@@ -10,15 +10,13 @@ import './styles/styles';
 
 const Content = styled.main`
 	display: flex;
-`
-
-
+`;
+ 
 const App: FC = () => {
 	// const {theme} = useTheme();
-	
+
 	return (
 		<div className="app">
-
 			<Suspense fallback="">
 				<Navbar />
 				<Content className="content-page">

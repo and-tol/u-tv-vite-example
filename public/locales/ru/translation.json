@@ -11,8 +11,11 @@
   "Input": "Вход",
   "increment": "увеличить",
   "decrement": "уменьшить",
-  "Войти": "Войти",
   "Enter": "Войти",
   "Input Password": "Введите пароль",
-  "Input Username": "Ведите Username"
+  "Input Username": "Ведите имя пользователя",
+  "Authorisation form": "Форма авторизации",
+  "Incorrect login or password": "Неверный логин или пароль",
+  "No data to login": "Нет данных для входа",
+  "Logout": "Выйти"
 }

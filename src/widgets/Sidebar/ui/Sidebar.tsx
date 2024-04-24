@@ -6,7 +6,7 @@ import {useTranslation} from 'react-i18next';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import {RoutePath} from 'shared/config/routConfig/routConfig';
-import {Button, ButtonKind, ButtonSize, ThemeSwitcher} from 'shared/ui';
+import {Button, ButtonSize, ButtonTheme, ThemeSwitcher} from 'shared/ui';
 import AppLink, {AppLinkTheme} from 'shared/ui/AppLink/AppLink';
 import LanguageSwitcher from 'shared/ui/LanguageSwitcher/ui/LanguageSwitcher';
 
@@ -71,7 +71,7 @@ const Sidebar: FC<SidebarProps> = ({className = ''}) => {
 				data-testid="sidebar-toggle"
 				onClick={onToggle}
 				className={cx(styles.collapseBtn)}
-				theme={ButtonKind.BACKGROUND_INVERTED}
+				theme={ButtonTheme.BACKGROUND_INVERTED}
 				square
 				size={ButtonSize.L}
 			>

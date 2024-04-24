@@ -1,20 +1,20 @@
 import {cx} from '@linaria/core';
 import {styled} from '@linaria/react';
 import type {FC} from 'react';
-import {memo, useCallback} from 'react';
+import {memo} from 'react';
 import {useTranslation} from 'react-i18next';
 
-import {Button, Input} from 'shared/ui';
-import * as styles from './LoginForm.styles';
-import {ButtonTheme} from 'shared/ui/Button/ui/Button';
 import {loginByUsername, setPassword, setUsername, useLoginStore} from 'features/AuthByUsername';
-import {useShallow} from 'zustand/react/shallow';
 import {LoginStore} from 'features/AuthByUsername/model/types/LoginSchema';
+import {Button, Input, Text, TextTheme} from 'shared/ui';
+import {ButtonTheme} from 'shared/ui/Button/ui/Button';
+import {useShallow} from 'zustand/react/shallow';
+import * as styles from './LoginForm.styles';
 
 const LoginFormStyled = styled.div`
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	/* align-items: center; */
 	gap: 0.5rem;
 	width: 100%;
 `;
@@ -33,10 +33,12 @@ const onChangePassword = (value: string): void => {
 
 const LoginForm: FC<LoginFormProps> = memo(({className}) => {
 	const {t} = useTranslation();
-	const {username, password} = useLoginStore(
+	const {username, password, isLoading, error} = useLoginStore(
 		useShallow((state: LoginStore) => ({
 			username: state.username,
 			password: state.password,
+			isLoading: state.isLoading,
+			error: state.error,
 		}))
 	);
 
@@ -46,6 +48,8 @@ const LoginForm: FC<LoginFormProps> = memo(({className}) => {
 
 	return (
 		<LoginFormStyled className={cx(className)}>
+			<Text title={t('Authorisation form')} />
+			{error && <Text theme={TextTheme.ERROR} text={error} />}
 			<Input
 				label={t('Input Username')}
 				type="text"
@@ -61,7 +65,12 @@ const LoginForm: FC<LoginFormProps> = memo(({className}) => {
 				onChange={onChangePassword}
 				value={password}
 			/>
-			<Button theme={ButtonTheme.OUTLINE} className={styles.loginBtn} onClick={onLoginClick}>
+			<Button
+				theme={ButtonTheme.OUTLINE}
+				className={styles.loginBtn}
+				onClick={onLoginClick}
+				disabled={isLoading}
+			>
 				{t('Enter')}
 			</Button>
 		</LoginFormStyled>

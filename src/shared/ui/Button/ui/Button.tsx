@@ -6,7 +6,7 @@ import {styled} from '@linaria/react';
 import * as styles from './Button.styles';
 
 interface ButtonStyledProps extends React.HTMLAttributes<HTMLButtonElement> {
-	buttonKind?: ButtonTheme;
+	buttonTheme?: ButtonTheme;
 	square?: boolean;
 	size?: ButtonSize;
 	theme?: string;
@@ -34,30 +34,51 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	theme?: ButtonTheme;
 	square?: boolean;
 	size?: ButtonSize;
+	disabled?: boolean;
 }
 const Button: FC<ButtonProps> = (props) => {
-	const {className, children, theme, square = false, size = ButtonSize.M, ...rest} = props;
-	
-	let btnKind: LinariaClassName;
+	const {
+		className,
+		children,
+		theme,
+		disabled = false,
+		square = false,
+		size = ButtonSize.M,
+		...rest
+	} = props;
+
+	let btnTheme: LinariaClassName;
 	switch (theme) {
-		case ButtonTheme.CLEAR: 
-			btnKind = css`${styles.clear}`;
+		case ButtonTheme.CLEAR:
+			btnTheme = css`
+				${styles.clear}
+			`;
 			break;
 		case ButtonTheme.CLEAR_INVERTED:
-			btnKind = css`${styles.clearInverted}`;
+			btnTheme = css`
+				${styles.clearInverted}
+			`;
 			break;
 		case ButtonTheme.BACKGROUND:
-			btnKind = css`${styles.background}`;
+			btnTheme = css`
+				${styles.background}
+			`;
 			break;
 		case ButtonTheme.OUTLINE:
-			btnKind = css`${styles.outline}`;
+			btnTheme = css`
+				${styles.outline}
+			`;
 			break;
 		case ButtonTheme.BACKGROUND_INVERTED:
-			btnKind = css`${styles.backgroundInverted}`;
+			btnTheme = css`
+				${styles.backgroundInverted}
+			`;
 			break;
-	
+
 		default:
-			btnKind = css`${styles.outline}`;
+			btnTheme = css`
+				${styles.outline}
+			`;
 			break;
 	}
 
@@ -66,23 +87,47 @@ const Button: FC<ButtonProps> = (props) => {
 	if (square && size) {
 		switch (size) {
 			case ButtonSize.L:
-				sizeBtn = square ? css`${styles.square_size_l}` : css`${styles.size_l}`;
-				break
-			case ButtonSize.XL:
-				sizeBtn = square ? css`${ styles.square_size_xl }` : css`${ styles.size_xl }`
+				sizeBtn = square
+					? css`
+							${styles.square_size_l}
+					  `
+					: css`
+							${styles.size_l}
+					  `;
 				break;
-					
+			case ButtonSize.XL:
+				sizeBtn = square
+					? css`
+							${styles.square_size_xl}
+					  `
+					: css`
+							${styles.size_xl}
+					  `;
+				break;
+
 			default: /* M */
-				sizeBtn = square ? css`${ styles.square_size_m }` : css`${ styles.size_m }`
+				sizeBtn = square
+					? css`
+							${styles.square_size_m}
+					  `
+					: css`
+							${styles.size_m}
+					  `;
 				break;
 		}
-		
 	} else if (square) {
-		squareBtn = square && css`${ styles.square }`;
+		squareBtn =
+			square &&
+			css`${styles.square}`;
 	}
-	
+
 	return (
-		<ButtonStyled type="button" className={cx(btnKind, squareBtn, sizeBtn, className) } {...rest}>
+		<ButtonStyled
+			type="button"
+			disabled={disabled}
+			className={cx(btnTheme, squareBtn, sizeBtn, className, `${disabled ? styles.disabled : ''}`)}
+			{...rest}
+		>
 			{children}
 		</ButtonStyled>
 	);

@@ -52,6 +52,11 @@ export default defineConfig({
 		// 	'src/stories/**/*.{css,scss,sass,ts,tsx,mdx,svg}',
 		// ],
 	},
+	resolve: {
+		// default plus mdx ref: https://github.com/storybookjs/storybook/issues/21610#issuecomment-1882417258
+		extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.mdx'],
+		
+	},
 	build: {
 		minify: 'terser', // Or another minifier if needed
 		target: 'es6', // Or a higher target if needed

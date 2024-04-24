@@ -1,5 +1,4 @@
-import useUserStore from './model/store/userStore';
-import { User, UserSchema } from './model/types/user';
+import useUserStore, {getUserAuthData, logoutUser, setAuthData} from './model/store/userStore';
+// import {User} from './model/types/user';
 
-
-export { UserSchema, User, useUserStore };
+export {useUserStore, setAuthData, getUserAuthData, logoutUser};

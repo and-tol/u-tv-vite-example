@@ -2,10 +2,8 @@ import type {ChangeEvent, FC, InputHTMLAttributes} from 'react';
 import {memo, useEffect, useRef, useState} from 'react';
 import {styled} from '@linaria/react';
 
-
 const InputWrapperStyled = styled.div`
 	display: flex;
-	margin-block-start: 10px;
 `;
 const LabelStyled = styled.label`
 	margin-inline-end: 5px;

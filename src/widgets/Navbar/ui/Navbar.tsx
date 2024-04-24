@@ -4,10 +4,10 @@ import type {FC, ReactNode} from 'react';
 import {useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
-// import {LoginModal} from 'features/AuthByUsername';
 import {LoginModal} from 'features/AuthByUsername';
-import {Button, ButtonKind} from 'shared/ui';
+import {Button, ButtonTheme} from 'shared/ui';
 import * as styles from './Navbar.styles';
+import {getUserAuthData, logoutUser} from 'entities/User';
 
 const NavbarStyled = styled.section`
 	width: 100%;
@@ -16,14 +16,15 @@ const NavbarStyled = styled.section`
 	align-items: center;
 	padding: 20px;
 	display: flex;
-`
+`;
 interface NavbarProps {
-	children?: ReactNode,
-	className?: string,
+	children?: ReactNode;
+	className?: string;
 }
 const Navbar: FC<NavbarProps> = ({children, className}) => {
 	const {t} = useTranslation();
 	const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
+	const {id, username} = getUserAuthData();
 
 	const onCloseModal = useCallback((): void => {
 		setIsAuthModal(false);
@@ -31,17 +32,23 @@ const Navbar: FC<NavbarProps> = ({children, className}) => {
 	const onShowModal = useCallback((): void => {
 		setIsAuthModal(true);
 	}, []);
+	const onLogout = useCallback((): void => {
+		logoutUser();
+		setIsAuthModal(false);
+	}, []);
 
 	return (
 		<NavbarStyled className={cx(className)}>
 			{children}
-			<Button
-				theme={ButtonKind.CLEAR_INVERTED}
-				className={cx(styles.links)}
-				onClick={onShowModal}
-			>
-				{t('Input')}
-			</Button>
+			{id || username ? (
+				<Button theme={ButtonTheme.CLEAR_INVERTED} className={cx(styles.links)} onClick={onShowModal}>
+					{t('Input')}
+				</Button>
+			) : (
+				<Button theme={ButtonTheme.CLEAR_INVERTED} className={cx(styles.links)} onClick={onLogout}>
+					{t('Logout')}
+				</Button>
+			)}
 			<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
 		</NavbarStyled>
 	);

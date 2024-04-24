@@ -2,10 +2,9 @@ import {css} from '@linaria/core';
 // export const Button= css`
 // 	padding: 8px 15px;
 // `
-export const Button= {
+export const Button = {
 	padding: '8px 15px',
-}
-
+};
 
 export const clear = {
 	padding: '0',
@@ -42,8 +41,8 @@ export const backgroundInverted = {
 // 	padding: .5rem 1rem;
 // `;
 export const square = {
-	padding: '.5rem 1rem'
-}
+	padding: '.5rem 1rem',
+};
 
 // export const size_m = css`
 // 	font-size: var(--font-size-m);
@@ -96,3 +95,8 @@ export const square_size_xl = {
 	height: 'var(--font-line-xl)',
 	...size_xl,
 };
+
+export const disabled = css`
+	opacity:.5;
+	cursor: initial;
+`;

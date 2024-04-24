@@ -11,5 +11,10 @@
   "decrement": "decrement",
   "Enter": "Enter",
   "Input Password": "Input Password",
-  "Input Username": "Input Username"
+  "Input Username": "Input Username",
+  "Authorisation form": "Authorisation Form",
+  "Incorrect login or password": "Incorrect login or password",
+  "No data to login": "No data to login",
+  "Logout": "Logout",
+  "Input": "Input"
 }

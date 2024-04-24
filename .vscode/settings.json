@@ -1,3 +1,8 @@
 {
-	"i18next.i18nPaths": "g:/web-develop-edu/__ReactJS__/ulbitv/vite-example/public/locales,g:/web-develop-edu/__ReactJS__/ulbitv/vite-example/src/shared/config/i18n"
+	"i18next.i18nPaths": "g:/web-develop-edu/__ReactJS__/ulbitv/vite-example/public/locales,g:/web-develop-edu/__ReactJS__/ulbitv/vite-example/src/shared/config/i18n,/G:/web-develop-edu/__ReactJS__/ulbitv_vite/public/locales",
+	"i18n-ally.localesPaths": [
+		"public/locales",
+		"src/shared/config/i18n"
+	],
+	"i18n-ally.keystyle": "flat"
 }

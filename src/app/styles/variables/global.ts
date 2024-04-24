@@ -1,4 +1,4 @@
-import {css} from '@linaria/core';
+// import {css} from '@linaria/core';
 import {stylesVariables} from './stylesVariables';
 
 export const global = `
@@ -27,6 +27,7 @@ export const global = `
 
 			/* Colors */
 			--overlay-color: rgb(0 0 0 / 60%);
-
+			--error-color-light: rgb(${stylesVariables.default.colors.redLight});
+			--error-color-dark: rgb(${stylesVariables.default.colors.redDark});
 		}
 `;
