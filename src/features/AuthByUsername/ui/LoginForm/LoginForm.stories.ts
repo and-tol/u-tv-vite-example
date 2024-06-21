@@ -1,6 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import LoginForm from './LoginForm';
 import {ThemeLightDecorator} from 'shared/config/.storybook/ThemeDecorator';
+import {StoreDecorator} from 'shared/config/.storybook';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -18,7 +19,7 @@ const meta = {
 	},
 	args: {
 	},
-	decorators: [ThemeLightDecorator],
+	decorators: [ThemeLightDecorator, StoreDecorator],
 } satisfies Meta<typeof LoginForm>;
 
 export default meta;
@@ -26,3 +27,6 @@ type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {};
+
+export const WithForm: Story = {};
+export const WithError: Story = {};

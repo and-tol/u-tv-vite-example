@@ -1,10 +1,10 @@
-import React from "react"
 import type {Preview} from '@storybook/react';
 import {
 	RouterDecorator,
 	StyleDecorator,
 	ThemeLightDecorator,
 } from '../src/shared/config/.storybook';
+
 
 const preview: Preview = {
 	decorators: [StyleDecorator, ThemeLightDecorator, RouterDecorator],

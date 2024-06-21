@@ -37,10 +37,12 @@ const Navbar: FC<NavbarProps> = ({children, className}) => {
 		setIsAuthModal(false);
 	}, []);
 
+	console.log(!Boolean(id.length || username.length))
+	
 	return (
 		<NavbarStyled className={cx(className)}>
 			{children}
-			{id || username ? (
+			{!Boolean(id.length || username.length) ? (
 				<Button theme={ButtonTheme.CLEAR_INVERTED} className={cx(styles.links)} onClick={onShowModal}>
 					{t('Input')}
 				</Button>

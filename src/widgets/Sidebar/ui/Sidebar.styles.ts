@@ -24,8 +24,11 @@ export const Sidebar = {
 
 export const collapseBtn = css`
 	position: absolute;
-	right: -32px;
+	right: -27px;
 	bottom: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;
 
 export const background = {

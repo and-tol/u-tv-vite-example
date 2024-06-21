@@ -1,11 +1,11 @@
+import axios from 'axios';
+import {setAuthData} from 'entities/User';
+import {User} from 'entities/User/model/types/user.types';
+import {URL_LOGIN} from 'shared/config/constants/constants';
+import i18n from 'shared/config/i18n/i18n';
 import {create} from 'zustand';
 import {devtools} from 'zustand/middleware';
 import {LoginSchema} from '../types/LoginSchema';
-import axios from 'axios';
-import {URL_LOGIN} from 'shared/config/constants/constants';
-import {setAuthData} from 'entities/User';
-import i18n from 'shared/config/i18n/i18n';
-import {User} from 'entities/User/model/types/user';
 
 interface LoginByUsernameProps {
 	username: string;

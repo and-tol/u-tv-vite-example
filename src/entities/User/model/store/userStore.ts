@@ -1,9 +1,9 @@
+import {shallow} from '@tanstack/react-router';
 import {USER_LOCALSTORAGE_KEY} from 'shared/config/constants/constants';
 import {create} from 'zustand';
 import {devtools, persist} from 'zustand/middleware';
-import {User, UserAuth} from '../types/user';
-import {shallow} from '@tanstack/react-router';
 import {useShallow} from 'zustand/react/shallow';
+import {User, UserAuth} from '../types/user.types';
 
 const initialStateAuth: UserAuth = {
 	authData: {

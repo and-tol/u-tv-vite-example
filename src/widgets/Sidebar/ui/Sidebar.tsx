@@ -10,8 +10,7 @@ import {Button, ButtonSize, ButtonTheme, ThemeSwitcher} from 'shared/ui';
 import AppLink, {AppLinkTheme} from 'shared/ui/AppLink/AppLink';
 import LanguageSwitcher from 'shared/ui/LanguageSwitcher/ui/LanguageSwitcher';
 
-import * as styles from './Sidebar.stiles';
-
+import * as styles from './Sidebar.styles';
 
 const SidebarStyled = styled.aside`
 	height: calc(100vh - var(--navbar-hight));
@@ -84,8 +83,7 @@ const Sidebar: FC<SidebarProps> = ({className = ''}) => {
 					theme={AppLinkTheme.PRIMARY}
 					className={cx(styles.navItem, styles.link)}
 				>
-					{/* <MainIcon className={cx(styles.icon)} /> */}
-					<MainIcon />
+					<MainIcon className={cx(styles.icon)} />
 					<NavItemText>{t('Main')}</NavItemText>
 				</AppLink>
 				<AppLink
@@ -93,8 +91,7 @@ const Sidebar: FC<SidebarProps> = ({className = ''}) => {
 					theme={AppLinkTheme.PRIMARY}
 					className={cx(styles.navItem, styles.link)}
 				>
-					{/* <AboutIcon className={cx(styles.icon)} /> */}
-					<AboutIcon />
+					<AboutIcon className={cx(styles.icon)} />
 					<NavItemText>{t('About')}</NavItemText>
 				</AppLink>
 			</Nav>
